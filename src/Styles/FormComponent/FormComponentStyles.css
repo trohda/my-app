@@ -1,0 +1,15 @@
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myForm {
+  border: 8px solid black;
+  padding: 80px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
