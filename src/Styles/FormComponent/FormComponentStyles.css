@@ -5,11 +5,46 @@
 }
 
 .myForm {
-  border: 8px solid black;
+  border: 10px solid rgb(29, 29, 29);
+  background-color: rgb(247, 247, 247);
   padding: 80px;
   gap: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 400px;
+}
+.myForm input {
+  width: 90%;
+  height: 30px;
+  border-radius: 6px;
+  border: 2px solid lightgray;
+}
+
+.myForm input::placeholder {
+  color: lightgray;
+  padding-left: 10px;
+}
+
+.myForm button {
+  background-color: orange;
+  border-radius: 20px;
+  height: 30px;
+  color: black;
+  border: none;
+}
+
+.formConsent {
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  color: lightgray;
+}
+
+.formConsent input {
+  width: 10px;
+  height: 10px;
 }
