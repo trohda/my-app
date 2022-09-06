@@ -22,8 +22,21 @@ const FormComponent: FC = () => {
   const [emailInputError, setEmailInputError] = useState(false);
   const [telNumberInputError, setTelNumberInputError] = useState(false);
 
-  let inputRequest: FormRequest;
+  let inputRequestData: FormRequest;
 
+  // request do api
+  const sendRequest = (formData: FormRequest) => {
+    fetch("http://backend.form.vee.ai/send_form/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "pwoeirslkdfj4783woiery2lk3j4",
+      },
+      body: JSON.stringify(formData),
+    }).then((data) => console.log(data));
+  };
+
+  //submit formularza
   const sendFormHandler = (event: React.FormEvent) => {
     event.preventDefault();
     const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -42,7 +55,7 @@ const FormComponent: FC = () => {
     } else if (!telNumberInput.match(telNumberFormat)) {
       setTelNumberInputError(true);
     } else {
-      inputRequest = {
+      inputRequestData = {
         name: nameInput,
         e_mail: emailInput,
         phone_number: telNumberInput,
@@ -51,7 +64,8 @@ const FormComponent: FC = () => {
       };
       setEmailInputError(false);
       setTelNumberInputError(false);
-      console.log(inputRequest);
+
+      sendRequest(inputRequestData);
     }
   };
 
