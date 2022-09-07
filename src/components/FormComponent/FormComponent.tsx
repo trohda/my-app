@@ -26,14 +26,17 @@ const FormComponent: FC = () => {
 
   // request do api
   const sendRequest = (formData: FormRequest) => {
-    fetch("http://backend.form.vee.ai/send_form/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": "pwoeirslkdfj4783woiery2lk3j4",
-      },
-      body: JSON.stringify(formData),
-    }).then((data) => console.log(data));
+    fetch(
+      "http://backend.form.vee.ai/send_form/?x-api-key=pwoeirslkdfj4783woiery2lk3j4",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "pwoeirslkdfj4783woiery2lk3j4",
+        },
+        body: JSON.stringify(formData),
+      }
+    ).then((data) => console.log(data));
   };
 
   //submit formularza
@@ -46,8 +49,7 @@ const FormComponent: FC = () => {
       nameInput.length === 0 ||
       emailInput.length === 0 ||
       telNumberInput.length === 0 ||
-      companyNameInput.length === 0 ||
-      messageInput.length === 0
+      companyNameInput.length === 0
     ) {
       setInputError(true);
     } else if (!emailInput.match(mailFormat)) {
