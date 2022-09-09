@@ -1,12 +1,12 @@
-import React from "react";
+import { FC } from "react";
 import FormComponent from "./components/FormComponent/FormComponent";
 
-function App() {
+const App: FC = () => {
   return (
     <div>
       <FormComponent />
     </div>
   );
-}
+};
 
 export default App;
