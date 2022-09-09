@@ -38,15 +38,14 @@ const FormComponent: FC = () => {
 
   // request do api
   const sendRequest = (formData: FormRequest) => {
-    fetch("http://localhost:3000")
-      //fetch("http://backend.form.vee.ai"{
-      //    method: "POST",
-      //    headers: {
-      //     "Content-Type": "application/json",
-      //      "X-API-KEY": "pwoeirslkdfj4783woiery2lk3j4",
-      //    },
-      //     body: JSON.stringify(formData),
-      //    })
+    fetch("http://backend.form.vee.ai", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-KEY": "pwoeirslkdfj4783woiery2lk3j4",
+      },
+      body: JSON.stringify(formData),
+    })
       .then((res: Response) => {
         if (!res.ok) {
           throw new Error("Failed to fetch");
@@ -93,7 +92,14 @@ const FormComponent: FC = () => {
       ) : requestSentSuccess ? (
         <h1>Dziękujemy</h1>
       ) : (
-        <h1>Błąd serwera</h1>
+        <h1 style={{ textAlign: "center" }}>
+          Przepraszamy <br />
+          <span style={{ color: "red", fontSize: "2rem" }}>
+            "Błąd serwera"
+            <br />
+            :(
+          </span>
+        </h1>
       )}
       {!requestSent && (
         <form className="myForm" onSubmit={sendFormHandler}>
