@@ -1,13 +1,10 @@
 import React, { FC, useState } from "react";
-import "../../Styles/FormComponent/FormComponentStyles.css";
-
-interface FormRequest {
-  name: string;
-  e_mail: string;
-  phone_number: string;
-  company_name: string;
-  message: string;
-}
+import {
+  emailValidation,
+  telNumberValidator,
+} from "./formValidators/validators";
+import { FormRequest } from "./models/FormRequest_model";
+import "./Styles/FormComponent/FormComponentStyles.css";
 
 const FormComponent: FC = () => {
   //inputs states
@@ -26,15 +23,6 @@ const FormComponent: FC = () => {
 
   // object z danymi formularza
   let inputRequestData: FormRequest;
-
-  const emailValidation = (email: string) => {
-    const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return !email.match(mailFormat);
-  };
-  const telNumberValidator = (tel: string) => {
-    const telNumberFormat = /^\+(?:[0-9] ?){6,14}[0-9]$/;
-    return !tel.match(telNumberFormat);
-  };
 
   // request do api
   const sendRequest = (formData: FormRequest) => {
